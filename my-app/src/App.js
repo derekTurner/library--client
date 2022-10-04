@@ -1,24 +1,22 @@
-import React, { Component } from 'react';
+import {useState} from 'react'
 import Contacts from './components/contacts';
 
-class App extends Component {
+function App() {
 
-  state = {
-    contacts: []
-  }
-  componentDidMount() {
-    fetch('http://jsonplaceholder.typicode.com/users')
-    .then(res => res.json())
-    .then((data) => {
-      this.setState({ contacts: data })
-    })
-    .catch(console.log)
-  }
-  render() {
-    return (
-      <Contacts contacts={this.state.contacts} />
-    )
-  }
+  const [contacts, setContacts] = useState([]);
+
+  fetch('http://jsonplaceholder.typicode.com/users')
+  .then(res => res.json())
+  .then((data) => {
+    setContacts({ contacts: data })
+  })
+  .catch(console.log)
+
+
+  return (
+    <Contacts contacts={contacts} />
+  )
+ 
 }  
 
 export default App;
