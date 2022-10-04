@@ -9,17 +9,16 @@ function App() {
   const getContacts = () => {
     fetch('http://jsonplaceholder.typicode.com/users')
     .then(res => res.json())
-    .then(
-      (data) => {
-        console.log (data );
-        setContacts (data );
-      },
-      (error) => {
-        console.log(error);
-        setContacts(null);
-      }
-    );
-  };
+    .then((data) => {
+     console.log (data );
+      setContacts (data );
+    },
+    (error) => {
+      console.log(error);
+      setContacts(null);
+    }
+  );
+};
 
  if (!contacts) return <div>No Record Found</div>;
   return (
