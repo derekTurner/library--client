@@ -10,10 +10,12 @@ const Contacts = ({ contacts }) => {
       {contacts.map((contact, index) => (
         <Card key={index}>
           <Card.Body>
-          <Card.Title>{contact.name}</Card.Title>
-          <Card.Subtitle>{contact.email}</Card.Subtitle>
-          <Card.Text>{contact.company.catchPhrase}</Card.Text>
-            </Card.Body>
+            <Card.Text>{contact.book_count}</Card.Text>
+            <Card.Text>{contact.book_instance_available_count}</Card.Text>
+            <Card.Text>{contact.book_instance_counte}</Card.Text>
+            <Card.Text>{contact.genre_count}</Card.Text>
+            <Card.Text>{contact.book_count}</Card.Text>
+          </Card.Body>
         </Card>
 
       ))}
@@ -21,4 +23,4 @@ const Contacts = ({ contacts }) => {
   )
 };
 
-export default Contacts
+ export default Contacts

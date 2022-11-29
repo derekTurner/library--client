@@ -1,29 +1,30 @@
 import {useState, useEffect} from 'react'
-import Contacts from './components/contacts';
+import Catalog from './components/catalog';
 
 function App() {
 
-  const [contacts, setContacts] = useState([]);
-  useEffect(() => {getContacts();},[]);
+  const [libCatalog, setlibCatalog] = useState([]);
+  useEffect(() => {getCatalog();},[]);
 
-  const getContacts = () => {
-    fetch('http://jsonplaceholder.typicode.com/users')
+  const getCatalog = () => {
+    fetch('http://127.0.0.1:3001/catalog')
     .then(res => res.json())
     .then(
       (data) => {
-        console.log (data );
-        setContacts (data );
+        console.log ("data: ",data );
+  
+        setlibCatalog (data );
       },
       (error) => {
         console.log(error);
-        setContacts(null);
+        setlibCatalog(null);
       }
     );
   };
 
- if (!contacts) return <div>No Record Found</div>;
+ if (!libCatalog) return <div>No Record Found</div>;
   return (
-    <Contacts contacts={contacts} />
+    <Catalog libCatalog={libCatalog} />
   )
  
 }  
